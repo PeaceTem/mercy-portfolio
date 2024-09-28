@@ -1,0 +1,34 @@
+<!-- project_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ project.name }} - Project Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+  <!-- Detail Section -->
+  <div class="container mx-auto px-6 py-16">
+    <div class="max-w-4xl mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
+      <h1 class="text-4xl font-bold mb-4">{{ project.name }}</h1>
+      <p class="text-gray-400 mb-8">{{ project.description }}</p>
+      
+      {% if project.image %}
+        <img src="{{ project.image.url }}" alt="{{ project.name }}" class="w-full h-64 object-cover rounded-lg mb-8">
+      {% endif %}
+
+      <a href="/" class="inline-block px-6 py-2 bg-teal-500 text-white rounded-lg shadow-lg hover:bg-teal-400">
+        Back to Projects
+      </a>
+
+      <a href="{{ project.link }}" class="inline-block px-6 py-2 bg-teal-500 text-white rounded-lg shadow-lg hover:bg-teal-400">
+        View Project
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>

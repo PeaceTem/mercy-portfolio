@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+  <!-- Hero Section -->
+  <header class="py-20 bg-gray-800">
+    <div class="container mx-auto text-center">
+      <h1 class="text-5xl font-bold mb-4">My Portfolio</h1>
+      <p class="text-xl font-light mb-8">A showcase of my latest work</p>
+      <a href="#projects" class="px-8 py-3 bg-teal-500 text-white rounded-lg shadow-lg hover:bg-teal-400">Explore Projects</a>
+    </div>
+  </header>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-semibold text-center mb-12">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+       
+        {% for project in projects %}
+        <!-- Project Card -->
+        <div class="group relative cursor-pointer  bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105">
+            <img src="{{ project.image.url }}" alt="{{ project.name }}" class="w-full h-56 object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+              <div class="text-center px-4">
+                <h3 class="text-2xl font-bold">{{ project.name }}</h3>
+                <p class="mt-2 text-sm">{{ project.description | truncatewords:16 }}</p>
+                <a href="{% url 'project-detail' project.id %}" class="mt-4 inline-block px-6 py-2 border border-teal-500 text-teal-500 rounded-lg hover:bg-teal-500 hover:text-white">View More</a>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+          
+        <!-- Repeat Project Cards for all projects -->
+        <!-- Add more project cards below as per the number of projects -->
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="py-8 bg-gray-800">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 My Portfolio | <a href="mailto:mj405131@gmail.com" class="text-teal-500">mj405131@gmail.com</a></p>
+      <div class="mt-4">
+        <a href="https://x.com/Lunabae182806?s=08" class="text-teal-500 mx-2 hover:text-teal-400">Twitter</a>
+        <a href="https://www.linkedin.com/in/mercy-oluwaseun-36b555309" class="text-teal-500 mx-2 hover:text-teal-400">LinkedIn</a>
+        <a href="https://www.instagram.com/lunabae5271?igsh=YzljYTk1Og3Zg==" class="text-teal-500 mx-2 hover:text-teal-400">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=1000898997891838&mibexttid=ZbWKwL" class="text-teal-500 mx-2 hover:text-teal-400">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
