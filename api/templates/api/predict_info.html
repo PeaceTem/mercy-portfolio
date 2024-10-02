@@ -10,14 +10,21 @@
     <p>{{ info }}</p>
     <p>Example POST data:</p>
     <pre>
-{
-    "Hours_Studied": 25,
-    "Attendance": 87 # in percentage,
-    "Sleep_Hours": 8,
-    "Previous_cgpa": (option) first-class, second-class upper, second-class lower, third-class,
-    "Family_Income": High, Medium, Low,
-    "Learning_Disabilities": Yes, No
-}
+    {
+        "Hours_Studied": 25,
+        "Attendance": 87 # in percentage,
+        "Sleep_Hours": 8,
+        "Previous_cgpa": (option) first-class, second-class upper, second-class lower, third-class,
+        "Family_Income": High, Medium, Low,
+        "Learning_Disabilities": Yes, No
+    }
+    </pre>
+
+    <h3>Response</h3>
+    <pre>
+        {
+            "grade": 3, #  4: first-class, 3: second-class upper, 2: second-class lower, 1: third-class, 0: failure
+        }
     </pre>
 </body>
 </html>
